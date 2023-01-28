@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Tenancy\RegisterTenantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
- 
+
+// Tenant Registration Routes
+Route::get('/register', [RegisterTenantController::class, 'create']);
+Route::post('/register', [RegisterTenantController::class, 'store']);
