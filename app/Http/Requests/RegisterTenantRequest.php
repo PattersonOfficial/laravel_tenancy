@@ -32,4 +32,12 @@ class RegisterTenantRequest extends FormRequest
             'password' => ['required', 'confirmed', Password::defaults()],
         ];
     }
+
+
+    // validating the the domains to make it unique
+    public function prepareForValidation() {
+        $this->merge([
+            'domain' => $this->domain . '.' .  config('tenancy.central_domains')[0]
+        ]);
+    }
 }
