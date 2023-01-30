@@ -34,10 +34,10 @@ class RegisterTenantRequest extends FormRequest
     }
 
 
-    // validating the the domains to make it unique
+    // validating the domains to ensure its uniqueness
     public function prepareForValidation() {
         $this->merge([
-            'domain' => $this->domain . '.' .  config('tenancy.central_domains')[0]
+            'domain' => $this->domain
         ]);
     }
 }
