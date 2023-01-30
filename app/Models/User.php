@@ -43,10 +43,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-    public static function booted() {
-        static::creating(function ($user) {
-            $user->password = bcrypt($user->password);
-        });
-    }
 }
